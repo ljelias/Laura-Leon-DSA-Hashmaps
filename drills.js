@@ -1,4 +1,5 @@
 let HashMap = require('./HashMap');
+let SeparateChainHashMap = require('./SeparateChainHashMap');
 
 
 
@@ -121,3 +122,18 @@ function question6(arrayOfWords) {
 
 
 // question6(['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race']);
+
+
+function question7() {
+  let testChainHash = new SeparateChainHashMap;
+  testChainHash.set('a', 'first value');
+  testChainHash.set('b','second value');
+  testChainHash.set('c','third value');
+  testChainHash.set('b', 'fourth value');
+  // testChainHash.set('b', 'fifth value');
+  console.log(testChainHash);
+  testChainHash.delete('b', 'fourth value');
+  console.log('deleted');
+  console.log(testChainHash);
+}
+question7();
