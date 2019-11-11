@@ -53,9 +53,71 @@ function question4(string) {
 
 // question4('google all that you think can think of');
 
-function question5() {
+function question5(string) {
+  let palindromeFinder = new HashMap;
+
+  for (let i = 0; i < string.length; i++) {
+    try {
+      let keySearch = palindromeFinder.get(string[i])
+      palindromeFinder.delete(keySearch);
+    }
+    catch {
+      palindromeFinder.set(string[i], string[i]);
+    }
+  }  
+    let evenOrOdd = string.length % 2; // if it's 0 it's even, if it's 1 it's odd
+    if (evenOrOdd) {
+      //need palindrome finder to have length of 1
+      if (palindromeFinder.length > 1) {
+        console.log('could not be a palindrome');
+        return false;
+      }
+      else {
+        console.log('could be a palindrome');
+        return true;
+      }
+    }
+    else {
+      if (palindromeFinder.length === 0) {
+        console.log('could be a palindrome');
+        return true;
+      }
+      else {
+        console.log('could not be a palindrome');
+        return false;
+      }
+    }
+  }
+
+question5('tops tot spot');
+question5('loots tot stool');
+question5('aspool loopsy');
+
+function question6(arrayOfWords) {
+  let testHash = new HashMap;
+  for (let i =0; i < arrayOfWords.length; i++ ){
+    let currWord = arrayOfWords[i];
+    let sortedWord = currWord.split('').sort().join('');
 
 
+    let value = [currWord];
+    try {
+      let oldValue = testHash.get(sortedWord);
+      oldValue.push(currWord);
+    }
+    catch {
+      //there is no key yet
+      testHash.set(sortedWord, value)
+    }
+  }
+  let answers = [];
+  for (let obj of testHash._hashTable) {
+    if (obj) {
+      answers.push(obj.value);
+    }
+  }
+  console.log(answers);
 }
 
-question5();
+
+// question6(['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race']);
