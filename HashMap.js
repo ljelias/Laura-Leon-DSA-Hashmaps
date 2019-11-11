@@ -46,6 +46,7 @@ class HashMap {
   _findSlot(key) {
     const hash = HashMap._hashString(key);
     const start = hash % this._capacity;
+    // const start = 0;
 
     for (let i=start; i<start + this._capacity; i++) {
       const index = i % this._capacity;
@@ -82,7 +83,7 @@ class HashMap {
       //converting hash to a 32 bit integer
       hash = hash & hash;
     }
-    //making sure hash is unsigned - meaning non-negtive number. 
+    //making sure hash is unsigned - meaning non-negtive number.\
     return hash >>> 0;
   }
 }

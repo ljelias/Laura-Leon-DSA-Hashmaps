@@ -39,4 +39,23 @@ const WhatDoesThisDo = function(){
   console.log(map2.get(str3));
 }
 
-WhatDoesThisDo();
+// WhatDoesThisDo();
+
+
+function question4(string) {
+  let stringDecode = new HashMap;
+  for (let i =0; i< string.length; i++) {
+    stringDecode.set(string[i], string[i]);
+  }
+  console.log(stringDecode);
+
+}
+
+// question4('google all that you think can think of');
+
+function question5() {
+
+
+}
+
+question5();
